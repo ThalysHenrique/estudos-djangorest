@@ -1,0 +1,16 @@
+API Django
+
+- Crio o models > API/serializers > API/viewsets
+- urls > preciso importar o router
+- serializers > importar rest_framework{serializers} > crio uma classe > classe meta recebe 2 parâmetros
+
+IMAGEM Django
+
+- python -m pip install Pillow (biblioteca PILLOW trata imagens)
+- Criar uma função para guardar a imagem (models)
+- Configurar o settings (STATIC_FILES)
+- MEDIA_URL = '/media/' (nome da url que armazena essas imagens)
+- MEDIA_ROOT = 'BASE_DIR, 'media' {CASO SEJA UMA VERSÃO ANTIGA "os.path.join(BASE_DIR, 'media')"} (caminho da url)
+- 3ª passo incluir dentro de urls especifição dessa url de imagem 'media' > from django.conf.urls.static import static > from django.conf import settings
+- incluir no final de urlpatterns(depois de colchetes) > + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+- makemigrations > migrate > runserver

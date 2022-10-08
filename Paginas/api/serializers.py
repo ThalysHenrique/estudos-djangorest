@@ -6,5 +6,6 @@ from Paginas import models
 class PaginasSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Books
-        # campos desse serializer 'fields = todos os campos do model
+        # campos desse serializer 'fields' = está recebendo todos os campos do model
+        # posso setar quais parâmetros quero que ele recebe > exemplo: ('id_book', 'state', 'upload_image_book')
         fields = '__all__'

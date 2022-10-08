@@ -23,6 +23,11 @@ from django.urls import path, include
 from rest_framework import routers
 from Paginas.api import viewsets as Paginasviewsets
 
+# importar url de imagens
+
+from django.conf.urls.static import static
+from django.conf import settings
+
 route = routers.DefaultRouter()
 route.register(r'Paginas', Paginasviewsets.PaginasViewSet, basename = 'Paginas')
 
@@ -32,4 +37,5 @@ urlpatterns = [
     # consigo usar o "Paginas.urls" porque tem o __init__ e ele reconhece o "Paginas" como um pacote
     # deixando o primeiro parâmetro em branco consigo acessar diretamente do nome da url que indiquei dentro do urls "Paginas"
     path('', include(route.urls)),
-]
+    # incluir para imagens no final
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
